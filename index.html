@@ -151,7 +151,7 @@
 
         .cipher-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
             gap: 5px;
             margin: 20px 0;
             font-family: 'Courier New', monospace;
@@ -188,28 +188,59 @@
             <p id="errorMsg1" class="error"></p>
         </div>
 
-        <!-- Pagina 2: Gioco di Decriptazione -->
+        <!-- Pagina 2: Gioco di Equazioni -->
         <div id="page2" class="page">
-            <h1>Gioco di Decriptazione</h1>
-            <p class="subtitle">Decifra il messaggio segreto!</p>
+            <h1>Gioco delle Equazioni</h1>
+            <p class="subtitle">Risolvi le equazioni e decifra la parola!</p>
             
             <div class="game-section">
                 <p style="color: #333; font-size: 1.1em; margin-bottom: 20px;">
-                    Un messaggio è stato criptato con il <strong>Cifrario di Cesare</strong>.<br>
-                    Ogni lettera è stata spostata di <strong style="color: #8B0000;">3 posizioni</strong> avanti nell'alfabeto!
+                    Risolvi queste <strong>equazioni</strong> per trovare i numeri segreti!<br>
+                    Poi usa la <strong style="color: #8B0000;">tabella di conversione</strong> per scoprire la parola nascosta.
                 </p>
                 
-                <div class="encrypted-message">
-                    LQIRUPDWLFD
+                <div style="background: #f8f8f8; border: 3px solid #8B0000; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <div style="font-size: 1.3em; color: #333; text-align: left; margin-bottom: 15px;">
+                        <strong style="color: #8B0000;">Equazione 1:</strong> 2x + 4 = 28<br>
+                        <strong style="color: #8B0000;">Equazione 2:</strong> 3x - 7 = 8<br>
+                        <strong style="color: #8B0000;">Equazione 3:</strong> x/2 + 3 = 10<br>
+                        <strong style="color: #8B0000;">Equazione 4:</strong> 4x - 9 = 19<br>
+                        <strong style="color: #8B0000;">Equazione 5:</strong> 2x + 6 = 20
+                    </div>
                 </div>
                 
                 <div class="hint-box">
-                    <strong>Suggerimento:</strong> Per decifrare, sposta ogni lettera di 3 posizioni INDIETRO nell'alfabeto.<br>
-                    Ad esempio: D → A, E → B, F → C
+                    <strong>Tabella di Conversione Numeri → Lettere:</strong>
+                    <div class="cipher-grid" style="margin-top: 15px;">
+                        <div class="cipher-cell">1=<strong>A</strong></div>
+                        <div class="cipher-cell">2=<strong>B</strong></div>
+                        <div class="cipher-cell">3=<strong>C</strong></div>
+                        <div class="cipher-cell">4=<strong>D</strong></div>
+                        <div class="cipher-cell">5=<strong>E</strong></div>
+                        <div class="cipher-cell">6=<strong>F</strong></div>
+                        <div class="cipher-cell">7=<strong>G</strong></div>
+                        <div class="cipher-cell">8=<strong>H</strong></div>
+                        <div class="cipher-cell">9=<strong>I</strong></div>
+                        <div class="cipher-cell">10=<strong>J</strong></div>
+                        <div class="cipher-cell">11=<strong>K</strong></div>
+                        <div class="cipher-cell">12=<strong>L</strong></div>
+                        <div class="cipher-cell">13=<strong>M</strong></div>
+                        <div class="cipher-cell">14=<strong>N</strong></div>
+                        <div class="cipher-cell">15=<strong>O</strong></div>
+                        <div class="cipher-cell">16=<strong>P</strong></div>
+                        <div class="cipher-cell">17=<strong>Q</strong></div>
+                        <div class="cipher-cell">18=<strong>R</strong></div>
+                        <div class="cipher-cell">19=<strong>S</strong></div>
+                        <div class="cipher-cell">20=<strong>T</strong></div>
+                        <div class="cipher-cell">21=<strong>U</strong></div>
+                        <div class="cipher-cell">22=<strong>V</strong></div>
+                        <div class="cipher-cell">23=<strong>W</strong></div>
+                        <div class="cipher-cell">24=<strong>X</strong></div>
+                        <div class="cipher-cell">25=<strong>Y</strong></div>
+                        <div class="cipher-cell">26=<strong>Z</strong></div>
+                    </div>
                 </div>
 
-                
-                
                 <input type="text" id="decryptInput" placeholder="Inserisci la parola decifrata" />
                 <button onclick="checkDecryption()">Verifica</button>
                 <p id="errorMsg2" class="error"></p>
@@ -220,27 +251,25 @@
                 <h3>Cos'è la Crittografia?</h3>
                 <p>
                     <strong>La crittografia</strong> è l'arte di nascondere messaggi segreti! 
-                    Immagina di voler mandare una lettera a un amico senza che nessun altro possa leggerla: 
-                    la crittografia trasforma il tuo messaggio in un codice segreto che solo chi conosce la "chiave" può decifrare.
+                    In questo gioco hai usato le equazioni matematiche come chiave per decifrare un messaggio.
                 </p>
                 <br>
                 <p>
-                    Il <strong>Cifrario di Cesare</strong> che hai usato è uno dei metodi più antichi: 
-                    Giulio Cesare lo utilizzava 2000 anni fa per mandare messaggi segreti ai suoi legati.
-                    Funziona spostando ogni lettera di un numero fisso di posizioni nell'alfabeto.
+                    Risolvendo le equazioni hai trovato i numeri: <strong>12, 21, 14, 5, 7</strong> che corrispondono 
+                    alle lettere <strong>L, U, M, E, N</strong> secondo la tabella di conversione.
                 </p>
                 <br>
                 <p>
                     Oggi, la crittografia è ovunque: quando mandi un messaggio su WhatsApp, quando fai acquisti online, 
-                    o quando usi il bancomat. Ovviamente, i computer usano metodi molto più complessi del Cifrario di Cesare 
-                    per proteggere le tue informazioni personali.
+                    o quando usi il bancomat. I computer usano metodi matematici molto complessi 
+                    per proteggere le tue informazioni personali!
                 </p>
             </div>
         </div>
 
         <!-- Pagina 3: Successo -->
         <div id="page3" class="page">
-            <div class="checkmark"></div>
+            <div class="checkmark">✓</div>
             <h1>Complimenti!</h1>
             <p class="subtitle">Hai decifrato il messaggio!</p>
             
@@ -249,10 +278,14 @@
                     La password decifrata era:
                 </p>
                 <div style="background: #228B22; color: white; padding: 25px; border-radius: 10px; font-size: 2.5em; font-weight: bold; margin: 20px 0;">
-                    INFORMATICA
+                    LUMEN
                 </div>
                 <p style="color: #333; font-size: 1.1em; margin-top: 20px;">
                     Usa questa password per proseguire alla prossima postazione!
+                </p>
+                <br>
+                <p style="color: #666; font-size: 0.9em;">
+                    Le soluzioni erano: x₁=12 (L), x₂=5 (U), x₃=14 (M), x₄=7 (E), x₅=7 (N)
                 </p>
             </div>
         </div>
@@ -262,7 +295,7 @@
         // Pagina 1: Controllo password iniziale
         function checkInitialPassword() {
             const password = document.getElementById('passwordInput').value.toUpperCase();
-            const correctPassword = 'NOSMET';
+            const correctPassword = 'PROGRESSUS';
             
             if (password === correctPassword) {
                 document.getElementById('page1').classList.remove('active');
@@ -276,7 +309,7 @@
         // Pagina 2: Controllo decifrazione
         function checkDecryption() {
             const answer = document.getElementById('decryptInput').value.toUpperCase();
-            const correctAnswer = 'INFORMATICA';
+            const correctAnswer = 'LUMEN';
             
             if (answer === correctAnswer) {
                 document.getElementById('page2').classList.remove('active');
