@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #8B0000 0%, #DC143C 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 50px;
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+            border: 3px solid #8B0000;
+        }
+
+        h1 {
+            color: #8B0000;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            color: #DC143C;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        input[type="password"], input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1em;
+            border: 2px solid #DC143C;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        button {
+            background: #8B0000;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            margin: 10px;
+        }
+
+        button:hover {
+            background: #DC143C;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3);
+        }
+
+        .error {
+            color: #DC143C;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #228B22;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .game-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .encrypted-message {
+            background: #f8f8f8;
+            border: 3px dashed #8B0000;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.3em;
+            color: #8B0000;
+            font-weight: bold;
+            margin: 20px 0;
+            letter-spacing: 2px;
+        }
+
+        .hint-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            color: #856404;
+        }
+
+        .explanation {
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            color: #1b5e20;
+            text-align: left;
+            line-height: 1.8;
+        }
+
+        .explanation h3 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .cipher-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+            gap: 5px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .cipher-cell {
+            padding: 8px;
+            background: #f0f0f0;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .cipher-cell strong {
+            color: #8B0000;
+        }
+
+        .checkmark {
+            font-size: 4em;
+            color: #228B22;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Pagina 1: Richiesta Password -->
+        <div id="page1" class="page active">
+            <h1>Step 2</h1>
+            <p class="subtitle">Inserisci la password per iniziare</p>
+            
+            <input type="password" id="passwordInput" placeholder="Inserisci la password" />
+            <button onclick="checkInitialPassword()">Conferma</button>
+            <p id="errorMsg1" class="error"></p>
+        </div>
+
+        <!-- Pagina 2: Gioco di Decriptazione -->
+        <div id="page2" class="page">
+            <h1>Gioco di Decriptazione</h1>
+            <p class="subtitle">Decifra il messaggio segreto!</p>
+            
+            <div class="game-section">
+                <p style="color: #333; font-size: 1.1em; margin-bottom: 20px;">
+                    Un messaggio è stato criptato con il <strong>Cifrario di Cesare</strong>.<br>
+                    Ogni lettera è stata spostata di <strong style="color: #8B0000;">3 posizioni</strong> avanti nell'alfabeto!
+                </p>
+                
+                <div class="encrypted-message">
+                    LQIRUPDWLFD
+                </div>
+                
+                <div class="hint-box">
+                    <strong>Suggerimento:</strong> Per decifrare, sposta ogni lettera di 3 posizioni INDIETRO nell'alfabeto.<br>
+                    Ad esempio: D → A, E → B, F → C
+                </div>
+
+                
+                
+                <input type="text" id="decryptInput" placeholder="Inserisci la parola decifrata" />
+                <button onclick="checkDecryption()">Verifica</button>
+                <p id="errorMsg2" class="error"></p>
+                <p id="successMsg" class="success"></p>
+            </div>
+
+            <div class="explanation">
+                <h3>Cos'è la Crittografia?</h3>
+                <p>
+                    <strong>La crittografia</strong> è l'arte di nascondere messaggi segreti! 
+                    Immagina di voler mandare una lettera a un amico senza che nessun altro possa leggerla: 
+                    la crittografia trasforma il tuo messaggio in un codice segreto che solo chi conosce la "chiave" può decifrare.
+                </p>
+                <br>
+                <p>
+                    Il <strong>Cifrario di Cesare</strong> che hai usato è uno dei metodi più antichi: 
+                    Giulio Cesare lo utilizzava 2000 anni fa per mandare messaggi segreti ai suoi legati.
+                    Funziona spostando ogni lettera di un numero fisso di posizioni nell'alfabeto.
+                </p>
+                <br>
+                <p>
+                    Oggi, la crittografia è ovunque: quando mandi un messaggio su WhatsApp, quando fai acquisti online, 
+                    o quando usi il bancomat. Ovviamente, i computer usano metodi molto più complessi del Cifrario di Cesare 
+                    per proteggere le tue informazioni personali.
+                </p>
+            </div>
+        </div>
+
+        <!-- Pagina 3: Successo -->
+        <div id="page3" class="page">
+            <div class="checkmark"></div>
+            <h1>Complimenti!</h1>
+            <p class="subtitle">Hai decifrato il messaggio!</p>
+            
+            <div class="game-section">
+                <p style="color: #333; font-size: 1.2em; margin-bottom: 20px;">
+                    La password decifrata era:
+                </p>
+                <div style="background: #228B22; color: white; padding: 25px; border-radius: 10px; font-size: 2.5em; font-weight: bold; margin: 20px 0;">
+                    INFORMATICA
+                </div>
+                <p style="color: #333; font-size: 1.1em; margin-top: 20px;">
+                    Usa questa password per proseguire alla prossima postazione!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Pagina 1: Controllo password iniziale
+        function checkInitialPassword() {
+            const password = document.getElementById('passwordInput').value.toUpperCase();
+            const correctPassword = 'OPENDAY2025';
+            
+            if (password === correctPassword) {
+                document.getElementById('page1').classList.remove('active');
+                document.getElementById('page2').classList.add('active');
+                document.getElementById('errorMsg1').textContent = '';
+            } else {
+                document.getElementById('errorMsg1').textContent = '❌ Password errata. Riprova!';
+            }
+        }
+
+        // Pagina 2: Controllo decifrazione
+        function checkDecryption() {
+            const answer = document.getElementById('decryptInput').value.toUpperCase();
+            const correctAnswer = 'INFORMATICA';
+            
+            if (answer === correctAnswer) {
+                document.getElementById('page2').classList.remove('active');
+                document.getElementById('page3').classList.add('active');
+                document.getElementById('errorMsg2').textContent = '';
+            } else {
+                document.getElementById('errorMsg2').textContent = '❌ Sbagliato. Riprova!';
+                document.getElementById('successMsg').textContent = '';
+            }
+        }
+
+        // Permetti invio con tasto Enter
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') checkInitialPassword();
+        });
+
+        document.getElementById('decryptInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') checkDecryption();
+        });
+    </script>
+</body>
+</html>
