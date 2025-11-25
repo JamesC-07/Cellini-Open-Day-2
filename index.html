@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #8B0000 0%, #DC143C 100%);
+            background: linear-gradient(135deg, #006400 0%, #228B22 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -30,18 +30,18 @@
             max-width: 700px;
             width: 100%;
             text-align: center;
-            border: 3px solid #8B0000;
+            border: 3px solid #006400;
         }
 
         h1 {
-            color: #8B0000;
+            color: #006400;
             font-size: 2.5em;
             margin-bottom: 10px;
             font-weight: bold;
         }
 
         .subtitle {
-            color: #DC143C;
+            color: #228B22;
             font-size: 1.2em;
             margin-bottom: 30px;
             font-style: italic;
@@ -51,14 +51,14 @@
             width: 100%;
             padding: 15px;
             font-size: 1.1em;
-            border: 2px solid #DC143C;
+            border: 2px solid #228B22;
             border-radius: 10px;
             margin: 20px 0;
             text-align: center;
         }
 
         button {
-            background: #8B0000;
+            background: #006400;
             color: white;
             border: none;
             padding: 15px 40px;
@@ -71,13 +71,13 @@
         }
 
         button:hover {
-            background: #DC143C;
+            background: #228B22;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 100, 0, 0.3);
         }
 
         .error {
-            color: #DC143C;
+            color: #dc3545;
             margin-top: 10px;
             font-weight: bold;
         }
@@ -112,24 +112,24 @@
 
         .encrypted-message {
             background: #f8f8f8;
-            border: 3px dashed #8B0000;
+            border: 3px dashed #006400;
             padding: 20px;
             border-radius: 10px;
             font-family: 'Courier New', monospace;
             font-size: 1.3em;
-            color: #8B0000;
+            color: #006400;
             font-weight: bold;
             margin: 20px 0;
             letter-spacing: 2px;
         }
 
         .hint-box {
-            background: #fff3cd;
-            border: 2px solid #ffc107;
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
             padding: 15px;
             border-radius: 10px;
             margin: 20px 0;
-            color: #856404;
+            color: #1b5e20;
         }
 
         .explanation {
@@ -166,13 +166,35 @@
         }
 
         .cipher-cell strong {
-            color: #8B0000;
+            color: #006400;
         }
 
         .checkmark {
             font-size: 4em;
             color: #228B22;
             margin-bottom: 20px;
+        }
+
+        .expressions-box {
+            background: #f8f8f8;
+            border: 3px solid #006400;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .expressions-box strong {
+            color: #006400;
+        }
+
+        .final-password {
+            background: #228B22;
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 20px 0;
         }
     </style>
 </head>
@@ -196,16 +218,16 @@
             <div class="game-section">
                 <p style="color: #333; font-size: 1.1em; margin-bottom: 20px;">
                     Risolvi queste <strong>espressioni</strong> per trovare i numeri segreti!<br>
-                    Poi usa la <strong style="color: #8B0000;">tabella di conversione</strong> per scoprire la parola nascosta.
+                    Poi usa la <strong style="color: #006400;">tabella di conversione</strong> per scoprire la parola nascosta.
                 </p>
                 
-                <div style="background: #f8f8f8; border: 3px solid #8B0000; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <div class="expressions-box">
                     <div style="font-size: 1.3em; color: #333; text-align: left; margin-bottom: 15px;">
-                        <strong style="color: #8B0000;">Espressione 1:</strong> 2 [4 + (7 - 5)] =<br>
-                        <strong style="color: #8B0000;">Espressione 2:</strong> 6 + (3 + 2)(9 - 6) =<br>
-                        <strong style="color: #8B0000;">Espressione 3:</strong> 13 - [(5 + 7 - 2) - 10)] =<br>
-                        <strong style="color: #8B0000;">Espressione 4:</strong> (2 + 3)(3 + 2) - 20 =<br>
-                        <strong style="color: #8B0000;">Espressione 5:</strong> {3 [(7 - 2) (-4 + 5)]} - 1 =
+                        <strong>Espressione 1:</strong> 2 [4 + (7 - 5)] =<br>
+                        <strong>Espressione 2:</strong> 6 + (3 + 2)(9 - 6) =<br>
+                        <strong>Espressione 3:</strong> 13 - [(5 + 7 - 2) - 10)] =<br>
+                        <strong>Espressione 4:</strong> (2 + 3)(3 + 2) - 20 =<br>
+                        <strong>Espressione 5:</strong> {3 [(7 - 2) (-4 + 5)]} - 1 =
                     </div>
                 </div>
                 
@@ -277,7 +299,7 @@
                 <p style="color: #333; font-size: 1.2em; margin-bottom: 20px;">
                     La password decifrata era:
                 </p>
-                <div style="background: #228B22; color: white; padding: 25px; border-radius: 10px; font-size: 2.5em; font-weight: bold; margin: 20px 0;">
+                <div class="final-password">
                     LUMEN
                 </div>
                 <p style="color: #333; font-size: 1.1em; margin-top: 20px;">
